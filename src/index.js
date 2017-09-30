@@ -25,9 +25,9 @@ export default function analyzeImportDeclaration(
   );
 
   const specifier = babelPath.get("specifiers.0").node.local.name;
-  analysisState.importBindings = analysisState.importBindings.concat({
-    import: importReplacement,
-    binding: babelPath.scope.bindings[specifier]
-  });
-  return importReplacement;
+
+  return {
+    code: babelPath.hub.file.code,
+    importReplacement
+  };
 }

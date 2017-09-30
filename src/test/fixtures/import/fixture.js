@@ -1,1 +1,1 @@
-import authPlug from "auth-plug";
+import * as authPlug from "auth-plug";
