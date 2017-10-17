@@ -5,7 +5,6 @@ export default function analyzeImportDeclaration(
   state,
   analysisState = { importBindings: [] }
 ) {
-  debugger;
   // Incorrect config
   if (!state.opts.projects) return false;
 
@@ -24,10 +23,23 @@ export default function analyzeImportDeclaration(
     module => module.from === moduleName
   );
 
-  const specifier = babelPath.get("specifiers.0").node.local.name;
+  const specifiers = babelPath
+    .get("specifiers")
+    .reduce(
+      (output, specifier) => output.concat(specifier.node.local.name),
+      []
+    );
+
+  const source = babelPath.get("source").node.value;
+
+  const specifierType = babelPath.get("specifiers.0").node.type;
+
+  debugger;
 
   return {
-    code: babelPath.hub.file.code,
+    source,
+    specifierType,
+    specifiers,
     importReplacement
   };
 }

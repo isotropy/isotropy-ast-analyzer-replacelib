@@ -76,9 +76,9 @@ describe("isotropy-ast-analyzer-replacelib", () => {
     });
   }
 
-  const tests = [["import", "import"]];
-
-  for (const test of tests) {
-    run(test);
-  }
+  [
+    ["import", "import"],
+    ["import-default", "import-default"],
+    ["import-namespace", "import-namespace"]
+  ].forEach(test => run(test));
 });
