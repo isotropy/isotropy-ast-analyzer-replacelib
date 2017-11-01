@@ -1,6 +1,16 @@
 module.exports = {
-  source: "auth-plug",
-  specifierType: "ImportSpecifier",
-  specifiers: ["authPlug", "authority"],
-  importReplacement: { from: "auth-plug", to: "server-auth-plug" }
+  replacements: [
+    {
+      from: {
+        module: "auth-plug",
+        exportType: "named",
+        specifier: "authPlug"
+      },
+      to: {
+        module: "auth-plug",
+        exportType: "named",
+        specifier: "authority"
+      }
+    }
+  ]
 };
