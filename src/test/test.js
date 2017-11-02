@@ -73,6 +73,8 @@ describe("isotropy-ast-analyzer-filesystem", () => {
 
   const tests = [
     ["import", "import", "match"],
+    ["import-default", "import-default", "match"],
+    ["import-namespace", "import-namespace", "match"],
   ];
 
   for (const test of tests) {
