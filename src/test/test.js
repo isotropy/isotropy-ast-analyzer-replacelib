@@ -54,7 +54,7 @@ describe("isotropy-ast-analyzer-filesystem", () => {
       const expected = require(`./fixtures/${dir}/expected`);
       const result = callWrapper();
       const actual = result.analysis;
-
+      
       if (resultType === "match") {
         actual.should.be.an.instanceOf(Match);
         const cleaned = utils.astCleaner.clean(actual.value);
@@ -72,7 +72,7 @@ describe("isotropy-ast-analyzer-filesystem", () => {
   }
 
   const tests = [
-    ["import", "import"],
+    ["import", "import", "match"],
   ];
 
   for (const test of tests) {

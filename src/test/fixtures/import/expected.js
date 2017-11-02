@@ -1,15 +1,27 @@
 module.exports = {
-  replacements: [
+  operation: "replace-module",
+  to: "lib-mongo-proxy",
+  specifiers: [
     {
-      from: {
-        module: "auth-plug",
-        exportType: "named",
-        specifier: "authPlug"
+      type: "ImportSpecifier",
+      imported: {
+        type: "Identifier",
+        name: "fetch"
       },
-      to: {
-        module: "auth-plug",
-        exportType: "named",
-        specifier: "authority"
+      local: {
+        type: "Identifier",
+        name: "fetch"
+      }
+    },
+    {
+      type: "ImportSpecifier",
+      imported: {
+        type: "Identifier",
+        name: "save"
+      },
+      local: {
+        type: "Identifier",
+        name: "save"
       }
     }
   ]
